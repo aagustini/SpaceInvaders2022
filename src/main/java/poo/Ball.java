@@ -1,6 +1,7 @@
 package poo;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Paint;
 
@@ -35,10 +36,24 @@ public class Ball extends BasicElement{
             }
         }
     }    
+
+    //
+    // atenção!
+    //    a alteração abaixo mostra como utilizar uma imagem  
+    //       no lugar do desenho
+    //    note que isto altera unicamente a apresentação, 
+    //       e não introduzi um novo personagem no jogo
+    //
+
+    //public void Draw(GraphicsContext graphicsContext){
+    //    graphicsContext.setFill(Paint.valueOf("#0000FF"));
+    //    graphicsContext.fillOval(getX(), getY(), 32, 32);
+    //}
     
+    private  Image img = new Image(getClass().getResourceAsStream("/imagens/monster.gif"));
+
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#0000FF"));
-        graphicsContext.fillOval(getX(), getY(), 32, 32);
-    }    
+       graphicsContext.drawImage(img,getX(),getY(),48,48);  
+    }
 }
 
